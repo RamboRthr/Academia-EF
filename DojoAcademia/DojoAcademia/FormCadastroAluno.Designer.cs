@@ -32,13 +32,13 @@ namespace DojoAcademia
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCpf = new System.Windows.Forms.Label();
-            this.maskCPF = new System.Windows.Forms.MaskedTextBox();
-            this.maskTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.mskCpf = new System.Windows.Forms.MaskedTextBox();
+            this.mskTelefone = new System.Windows.Forms.MaskedTextBox();
             this.lblTelefoneALuno = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxTurno = new System.Windows.Forms.ComboBox();
             this.lblTurno = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbxModalidade = new System.Windows.Forms.ComboBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -68,21 +68,21 @@ namespace DojoAcademia
             this.lblCpf.TabIndex = 3;
             this.lblCpf.Text = "CPF";
             // 
-            // maskedTextBox1
+            // maskCPF
             // 
-            this.maskCPF.Location = new System.Drawing.Point(444, 25);
-            this.maskCPF.Mask = "999,999,999-99";
-            this.maskCPF.Name = "maskedTextBox1";
-            this.maskCPF.Size = new System.Drawing.Size(100, 20);
-            this.maskCPF.TabIndex = 4;
+            this.mskCpf.Location = new System.Drawing.Point(444, 25);
+            this.mskCpf.Mask = "999,999,999-99";
+            this.mskCpf.Name = "maskCPF";
+            this.mskCpf.Size = new System.Drawing.Size(100, 20);
+            this.mskCpf.TabIndex = 4;
             // 
-            // maskedTextBox2
+            // maskTelefone
             // 
-            this.maskTelefone.Location = new System.Drawing.Point(12, 67);
-            this.maskTelefone.Mask = "(99) 99999-9999";
-            this.maskTelefone.Name = "maskedTextBox2";
-            this.maskTelefone.Size = new System.Drawing.Size(100, 20);
-            this.maskTelefone.TabIndex = 6;
+            this.mskTelefone.Location = new System.Drawing.Point(12, 67);
+            this.mskTelefone.Mask = "(99) 99999-9999";
+            this.mskTelefone.Name = "maskTelefone";
+            this.mskTelefone.Size = new System.Drawing.Size(100, 20);
+            this.mskTelefone.TabIndex = 6;
             // 
             // lblTelefoneALuno
             // 
@@ -93,13 +93,15 @@ namespace DojoAcademia
             this.lblTelefoneALuno.TabIndex = 5;
             this.lblTelefoneALuno.Text = "Telefone";
             // 
-            // comboBox1
+            // cbxTurno
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(118, 67);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 7;
+            this.cbxTurno.FormattingEnabled = true;
+            this.cbxTurno.Items.AddRange(new object[] {
+            "."});
+            this.cbxTurno.Location = new System.Drawing.Point(118, 67);
+            this.cbxTurno.Name = "cbxTurno";
+            this.cbxTurno.Size = new System.Drawing.Size(121, 21);
+            this.cbxTurno.TabIndex = 7;
             // 
             // lblTurno
             // 
@@ -119,13 +121,15 @@ namespace DojoAcademia
             this.label1.TabIndex = 10;
             this.label1.Text = "Modalidade";
             // 
-            // comboBox2
+            // cbxModalidade
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(245, 67);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 9;
+            this.cbxModalidade.FormattingEnabled = true;
+            this.cbxModalidade.Items.AddRange(new object[] {
+            "."});
+            this.cbxModalidade.Location = new System.Drawing.Point(245, 67);
+            this.cbxModalidade.Name = "cbxModalidade";
+            this.cbxModalidade.Size = new System.Drawing.Size(121, 21);
+            this.cbxModalidade.TabIndex = 9;
             // 
             // btnSalvar
             // 
@@ -155,12 +159,12 @@ namespace DojoAcademia
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cbxModalidade);
             this.Controls.Add(this.lblTurno);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.maskTelefone);
+            this.Controls.Add(this.cbxTurno);
+            this.Controls.Add(this.mskTelefone);
             this.Controls.Add(this.lblTelefoneALuno);
-            this.Controls.Add(this.maskCPF);
+            this.Controls.Add(this.mskCpf);
             this.Controls.Add(this.lblCpf);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.txtNome);
@@ -177,13 +181,13 @@ namespace DojoAcademia
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblCpf;
-        private System.Windows.Forms.MaskedTextBox maskCPF;
-        private System.Windows.Forms.MaskedTextBox maskTelefone;
+        private System.Windows.Forms.MaskedTextBox mskCpf;
+        private System.Windows.Forms.MaskedTextBox mskTelefone;
         private System.Windows.Forms.Label lblTelefoneALuno;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxTurno;
         private System.Windows.Forms.Label lblTurno;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbxModalidade;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnCancelar;
     }

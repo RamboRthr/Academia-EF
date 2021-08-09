@@ -23,9 +23,11 @@ namespace DojoAcademia
         private void FormCadastroAluno_Load(object sender, EventArgs e)
         {
             txtNome.DataBindings.Add("Text", aluno, "Nome");
-            maskCPF.DataBindings.Add("Text", aluno, "CPF");
-            maskTelefone.DataBindings.Add("Text", aluno, "Telefone");
-
+            mskCpf.DataBindings.Add("Text", aluno, "CPF");
+            mskCpf.Enabled = string.IsNullOrEmpty(aluno.CPF);
+            mskTelefone.DataBindings.Add("Text", aluno, "Telefone");
+            cbxTurno.DataBindings.Add("Text", aluno, "TurnoAluno");
+            cbxModalidade.DataBindings.Add("Text", aluno, "Modalidade");
         }
     }
 }

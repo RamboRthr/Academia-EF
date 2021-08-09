@@ -8,14 +8,17 @@
         public override void Up()
         {
             CreateTable(
-                "public.Aluno",
+                "public.Pessoa",
                 c => new
                     {
                         CPF = c.String(nullable: false, maxLength: 128),
-                        Turno = c.String(),
-                        Modalidade = c.String(),
                         Nome = c.String(),
                         Telefone = c.String(),
+                        TurnoAluno = c.String(),
+                        Modalidade = c.String(),
+                        Turno = c.String(),
+                        SalarioHora = c.Double(),
+                        Discriminator = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.CPF);
             
@@ -26,28 +29,16 @@
                         Nome = c.String(nullable: false, maxLength: 128),
                         PrecoHora = c.Double(nullable: false),
                         VezesSemana = c.Int(nullable: false),
+                        Professor = c.String(),
                     })
                 .PrimaryKey(t => t.Nome);
-            
-            CreateTable(
-                "public.Professor",
-                c => new
-                    {
-                        CPF = c.String(nullable: false, maxLength: 128),
-                        Turno = c.String(),
-                        SalarioHora = c.Double(nullable: false),
-                        Nome = c.String(),
-                        Telefone = c.String(),
-                    })
-                .PrimaryKey(t => t.CPF);
             
         }
         
         public override void Down()
         {
-            DropTable("public.Professor");
             DropTable("public.Modalidade");
-            DropTable("public.Aluno");
+            DropTable("public.Pessoa");
         }
     }
 }

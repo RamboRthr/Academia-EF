@@ -8,7 +8,7 @@ namespace DojoAcademia.Dominio
 {
     public class Aluno:Pessoa
     {
-        public string Turno { get; set; }
+        public string TurnoAluno { get; set; }
         public string Modalidade { get; set; }
     }
 }

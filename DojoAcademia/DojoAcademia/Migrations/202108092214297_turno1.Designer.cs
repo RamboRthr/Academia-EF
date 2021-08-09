@@ -7,13 +7,13 @@ namespace DojoAcademia.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class v01 : IMigrationMetadata
+    public sealed partial class turno1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(v01));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(turno1));
         
         string IMigrationMetadata.Id
         {
-            get { return "202108062232345_v01"; }
+            get { return "202108092214297_turno1"; }
         }
         
         string IMigrationMetadata.Source

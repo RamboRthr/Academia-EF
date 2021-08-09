@@ -14,11 +14,11 @@ namespace DojoAcademia
 {
     public partial class FormAlunos : Form
     {
-        
+
         public FormAlunos()
         {
             InitializeComponent();
-            
+
         }
 
         private void btnNovoAluno_Click(object sender, EventArgs e)
@@ -32,13 +32,16 @@ namespace DojoAcademia
 
             if (alunoBindingSource.Current == null) return;
 
+            var aluno = alunoBindingSource.Current as Aluno;
+            bool cpfVazio = string.IsNullOrEmpty(aluno.CPF);
+
             using (var form =
                 new FormCadastroAluno(
                     alunoBindingSource.Current as Aluno))
             {
                 if (form.ShowDialog() == DialogResult.Yes)
                 {
-                    var aluno = alunoBindingSource.Current as Aluno;
+                     aluno = alunoBindingSource.Current as Aluno;
 
                     using (var db = new AppDBContext())
                     {
@@ -46,7 +49,8 @@ namespace DojoAcademia
                         {
                             db.Set<Aluno>().Attach(aluno);
                         }
-                        if (String.IsNullOrEmpty(aluno.CPF))
+
+                        if (cpfVazio)
                         {
                             db.Entry(aluno).State = EntityState.Added;
                         }
@@ -55,7 +59,7 @@ namespace DojoAcademia
                             db.Entry(aluno).State = EntityState.Modified;
                         }
 
-                        if (db.SaveChanges() > 0)
+                            if (db.SaveChanges() > 0)
                         {
                             dataGridView1.Refresh();
                         }
@@ -72,6 +76,11 @@ namespace DojoAcademia
                 }
 
             }
+        }
+
+        private void btnExcluirAluno_Click(object sender, EventArgs e)
+        {
+            alunoBindingSource.RemoveCurrent();
         }
     }
 }

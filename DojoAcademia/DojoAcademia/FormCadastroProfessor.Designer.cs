@@ -29,18 +29,21 @@ namespace DojoAcademia
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.lblSalarioHora = new System.Windows.Forms.Label();
             this.lblTurno = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.cbxTurno = new System.Windows.Forms.ComboBox();
+            this.mskTelefone = new System.Windows.Forms.MaskedTextBox();
             this.lblTelefoneALuno = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.mskCPF = new System.Windows.Forms.MaskedTextBox();
             this.lblCpf = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtSalarioHora = new System.Windows.Forms.TextBox();
+            this.cbxSalarioHora = new System.Windows.Forms.TextBox();
+            this.turnoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.turnoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -81,21 +84,22 @@ namespace DojoAcademia
             this.lblTurno.TabIndex = 20;
             this.lblTurno.Text = "Turno";
             // 
-            // comboBox1
+            // cbxTurno
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(127, 74);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 19;
+            this.cbxTurno.DataSource = this.turnoBindingSource;
+            this.cbxTurno.FormattingEnabled = true;
+            this.cbxTurno.Location = new System.Drawing.Point(127, 74);
+            this.cbxTurno.Name = "cbxTurno";
+            this.cbxTurno.Size = new System.Drawing.Size(121, 21);
+            this.cbxTurno.TabIndex = 19;
             // 
-            // maskedTextBox2
+            // mskTelefone
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(21, 74);
-            this.maskedTextBox2.Mask = "(99) 99999-9999";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox2.TabIndex = 18;
+            this.mskTelefone.Location = new System.Drawing.Point(21, 74);
+            this.mskTelefone.Mask = "(99) 99999-9999";
+            this.mskTelefone.Name = "mskTelefone";
+            this.mskTelefone.Size = new System.Drawing.Size(100, 20);
+            this.mskTelefone.TabIndex = 18;
             // 
             // lblTelefoneALuno
             // 
@@ -106,13 +110,13 @@ namespace DojoAcademia
             this.lblTelefoneALuno.TabIndex = 17;
             this.lblTelefoneALuno.Text = "Telefone";
             // 
-            // maskedTextBox1
+            // mskCPF
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(453, 32);
-            this.maskedTextBox1.Mask = "999,999,999-99";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 16;
+            this.mskCPF.Location = new System.Drawing.Point(453, 32);
+            this.mskCPF.Mask = "999,999,999-99";
+            this.mskCPF.Name = "mskCPF";
+            this.mskCPF.Size = new System.Drawing.Size(100, 20);
+            this.mskCPF.TabIndex = 16;
             // 
             // lblCpf
             // 
@@ -138,33 +142,40 @@ namespace DojoAcademia
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(426, 20);
             this.txtNome.TabIndex = 13;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
-            // txtSalarioHora
+            // cbxSalarioHora
             // 
-            this.txtSalarioHora.Location = new System.Drawing.Point(257, 75);
-            this.txtSalarioHora.Name = "txtSalarioHora";
-            this.txtSalarioHora.Size = new System.Drawing.Size(94, 20);
-            this.txtSalarioHora.TabIndex = 25;
+            this.cbxSalarioHora.Location = new System.Drawing.Point(257, 75);
+            this.cbxSalarioHora.Name = "cbxSalarioHora";
+            this.cbxSalarioHora.Size = new System.Drawing.Size(94, 20);
+            this.cbxSalarioHora.TabIndex = 25;
+            // 
+            // turnoBindingSource
+            // 
+            this.turnoBindingSource.DataSource = typeof(DojoAcademia.Dominio.Turno);
             // 
             // FormCadastroProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(591, 235);
-            this.Controls.Add(this.txtSalarioHora);
+            this.Controls.Add(this.cbxSalarioHora);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.lblSalarioHora);
             this.Controls.Add(this.lblTurno);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.maskedTextBox2);
+            this.Controls.Add(this.cbxTurno);
+            this.Controls.Add(this.mskTelefone);
             this.Controls.Add(this.lblTelefoneALuno);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.mskCPF);
             this.Controls.Add(this.lblCpf);
             this.Controls.Add(this.lblNome);
             this.Controls.Add(this.txtNome);
             this.Name = "FormCadastroProfessor";
             this.Text = "FormCadastroProfessor";
+            this.Load += new System.EventHandler(this.FormCadastroProfessor_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.turnoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,13 +187,14 @@ namespace DojoAcademia
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label lblSalarioHora;
         private System.Windows.Forms.Label lblTurno;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.ComboBox cbxTurno;
+        private System.Windows.Forms.MaskedTextBox mskTelefone;
         private System.Windows.Forms.Label lblTelefoneALuno;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox mskCPF;
         private System.Windows.Forms.Label lblCpf;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.TextBox txtSalarioHora;
+        private System.Windows.Forms.TextBox cbxSalarioHora;
+        private System.Windows.Forms.BindingSource turnoBindingSource;
     }
 }

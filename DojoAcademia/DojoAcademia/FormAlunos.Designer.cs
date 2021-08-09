@@ -31,15 +31,14 @@ namespace DojoAcademia
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnNovoAluno = new System.Windows.Forms.Button();
-            this.btnAlterarAluno = new System.Windows.Forms.Button();
-            this.btnExcluirAluno = new System.Windows.Forms.Button();
-            this.turnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modalidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cPFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alunoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnNovoAluno = new System.Windows.Forms.Button();
+            this.btnAlterarAluno = new System.Windows.Forms.Button();
+            this.btnExcluirAluno = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alunoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +50,6 @@ namespace DojoAcademia
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.turnoDataGridViewTextBoxColumn,
             this.modalidadeDataGridViewTextBoxColumn,
             this.cPFDataGridViewTextBoxColumn,
             this.nomeDataGridViewTextBoxColumn,
@@ -62,42 +60,6 @@ namespace DojoAcademia
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(582, 150);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // btnNovoAluno
-            // 
-            this.btnNovoAluno.Location = new System.Drawing.Point(357, 168);
-            this.btnNovoAluno.Name = "btnNovoAluno";
-            this.btnNovoAluno.Size = new System.Drawing.Size(75, 23);
-            this.btnNovoAluno.TabIndex = 1;
-            this.btnNovoAluno.Text = "Novo";
-            this.btnNovoAluno.UseVisualStyleBackColor = true;
-            this.btnNovoAluno.Click += new System.EventHandler(this.btnNovoAluno_Click);
-            // 
-            // btnAlterarAluno
-            // 
-            this.btnAlterarAluno.Location = new System.Drawing.Point(438, 168);
-            this.btnAlterarAluno.Name = "btnAlterarAluno";
-            this.btnAlterarAluno.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterarAluno.TabIndex = 2;
-            this.btnAlterarAluno.Text = "Alterar";
-            this.btnAlterarAluno.UseVisualStyleBackColor = true;
-            this.btnAlterarAluno.Click += new System.EventHandler(this.btnNovoAluno_Click);
-            // 
-            // btnExcluirAluno
-            // 
-            this.btnExcluirAluno.Location = new System.Drawing.Point(519, 168);
-            this.btnExcluirAluno.Name = "btnExcluirAluno";
-            this.btnExcluirAluno.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluirAluno.TabIndex = 3;
-            this.btnExcluirAluno.Text = "Excluir";
-            this.btnExcluirAluno.UseVisualStyleBackColor = true;
-            // 
-            // turnoDataGridViewTextBoxColumn
-            // 
-            this.turnoDataGridViewTextBoxColumn.DataPropertyName = "Turno";
-            this.turnoDataGridViewTextBoxColumn.HeaderText = "Turno";
-            this.turnoDataGridViewTextBoxColumn.Name = "turnoDataGridViewTextBoxColumn";
-            this.turnoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // modalidadeDataGridViewTextBoxColumn
             // 
@@ -130,6 +92,36 @@ namespace DojoAcademia
             // alunoBindingSource
             // 
             this.alunoBindingSource.DataSource = typeof(DojoAcademia.Dominio.Aluno);
+            // 
+            // btnNovoAluno
+            // 
+            this.btnNovoAluno.Location = new System.Drawing.Point(357, 168);
+            this.btnNovoAluno.Name = "btnNovoAluno";
+            this.btnNovoAluno.Size = new System.Drawing.Size(75, 23);
+            this.btnNovoAluno.TabIndex = 1;
+            this.btnNovoAluno.Text = "Novo";
+            this.btnNovoAluno.UseVisualStyleBackColor = true;
+            this.btnNovoAluno.Click += new System.EventHandler(this.btnNovoAluno_Click);
+            // 
+            // btnAlterarAluno
+            // 
+            this.btnAlterarAluno.Location = new System.Drawing.Point(438, 168);
+            this.btnAlterarAluno.Name = "btnAlterarAluno";
+            this.btnAlterarAluno.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterarAluno.TabIndex = 2;
+            this.btnAlterarAluno.Text = "Alterar";
+            this.btnAlterarAluno.UseVisualStyleBackColor = true;
+            this.btnAlterarAluno.Click += new System.EventHandler(this.btnNovoAluno_Click);
+            // 
+            // btnExcluirAluno
+            // 
+            this.btnExcluirAluno.Location = new System.Drawing.Point(519, 168);
+            this.btnExcluirAluno.Name = "btnExcluirAluno";
+            this.btnExcluirAluno.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluirAluno.TabIndex = 3;
+            this.btnExcluirAluno.Text = "Excluir";
+            this.btnExcluirAluno.UseVisualStyleBackColor = true;
+            this.btnExcluirAluno.Click += new System.EventHandler(this.btnExcluirAluno_Click);
             // 
             // FormAlunos
             // 

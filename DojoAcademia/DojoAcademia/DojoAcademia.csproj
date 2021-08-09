@@ -100,6 +100,7 @@
     <Compile Include="Dominio\Modalidade.cs" />
     <Compile Include="Dominio\Pessoa.cs" />
     <Compile Include="Dominio\Professor.cs" />
+    <Compile Include="Dominio\Turno.cs" />
     <Compile Include="FormAlunos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,13 +143,21 @@
     <Compile Include="FormProfessores.Designer.cs">
       <DependentUpon>FormProfessores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108062232345_v01.cs" />
-    <Compile Include="Migrations\202108062232345_v01.designer.cs">
-      <DependentUpon>202108062232345_v01.cs</DependentUpon>
+    <Compile Include="Migrations\202108092138115_v01.cs" />
+    <Compile Include="Migrations\202108092138115_v01.designer.cs">
+      <DependentUpon>202108092138115_v01.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202108062241289_02.cs" />
-    <Compile Include="Migrations\202108062241289_02.designer.cs">
-      <DependentUpon>202108062241289_02.cs</DependentUpon>
+    <Compile Include="Migrations\202108092213044_turno.cs" />
+    <Compile Include="Migrations\202108092213044_turno.designer.cs">
+      <DependentUpon>202108092213044_turno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108092214297_turno1.cs" />
+    <Compile Include="Migrations\202108092214297_turno1.designer.cs">
+      <DependentUpon>202108092214297_turno1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108092234118_teste.cs" />
+    <Compile Include="Migrations\202108092234118_teste.designer.cs">
+      <DependentUpon>202108092234118_teste.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -174,11 +183,17 @@
     <EmbeddedResource Include="FormProfessores.resx">
       <DependentUpon>FormProfessores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108062232345_v01.resx">
-      <DependentUpon>202108062232345_v01.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202108092138115_v01.resx">
+      <DependentUpon>202108092138115_v01.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108062241289_02.resx">
-      <DependentUpon>202108062241289_02.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202108092213044_turno.resx">
+      <DependentUpon>202108092213044_turno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108092214297_turno1.resx">
+      <DependentUpon>202108092214297_turno1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108092234118_teste.resx">
+      <DependentUpon>202108092234118_teste.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -193,6 +208,7 @@
     <None Include="Properties\DataSources\DojoAcademia.Dominio.Aluno.datasource" />
     <None Include="Properties\DataSources\DojoAcademia.Dominio.Modalidade.datasource" />
     <None Include="Properties\DataSources\DojoAcademia.Dominio.Professor.datasource" />
+    <None Include="Properties\DataSources\DojoAcademia.Dominio.Turno.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

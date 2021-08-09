@@ -31,15 +31,15 @@ namespace DojoAcademia
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.professorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnExcluirProfessor = new System.Windows.Forms.Button();
+            this.btnAlterarProfessor = new System.Windows.Forms.Button();
+            this.btnNovoProfessor = new System.Windows.Forms.Button();
             this.turnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salarioHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cPFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExcluirProfessor = new System.Windows.Forms.Button();
-            this.btnAlterarProfessor = new System.Windows.Forms.Button();
-            this.btnNovoProfessor = new System.Windows.Forms.Button();
+            this.professorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.professorBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -63,9 +63,33 @@ namespace DojoAcademia
             this.dataGridView1.Size = new System.Drawing.Size(578, 150);
             this.dataGridView1.TabIndex = 0;
             // 
-            // professorBindingSource
+            // btnExcluirProfessor
             // 
-            this.professorBindingSource.DataSource = typeof(DojoAcademia.Dominio.Professor);
+            this.btnExcluirProfessor.Location = new System.Drawing.Point(515, 168);
+            this.btnExcluirProfessor.Name = "btnExcluirProfessor";
+            this.btnExcluirProfessor.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluirProfessor.TabIndex = 6;
+            this.btnExcluirProfessor.Text = "Excluir";
+            this.btnExcluirProfessor.UseVisualStyleBackColor = true;
+            // 
+            // btnAlterarProfessor
+            // 
+            this.btnAlterarProfessor.Location = new System.Drawing.Point(434, 168);
+            this.btnAlterarProfessor.Name = "btnAlterarProfessor";
+            this.btnAlterarProfessor.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterarProfessor.TabIndex = 5;
+            this.btnAlterarProfessor.Text = "Alterar";
+            this.btnAlterarProfessor.UseVisualStyleBackColor = true;
+            // 
+            // btnNovoProfessor
+            // 
+            this.btnNovoProfessor.Location = new System.Drawing.Point(353, 168);
+            this.btnNovoProfessor.Name = "btnNovoProfessor";
+            this.btnNovoProfessor.Size = new System.Drawing.Size(75, 23);
+            this.btnNovoProfessor.TabIndex = 4;
+            this.btnNovoProfessor.Text = "Novo";
+            this.btnNovoProfessor.UseVisualStyleBackColor = true;
+            this.btnNovoProfessor.Click += new System.EventHandler(this.btnNovoProfessor_Click);
             // 
             // turnoDataGridViewTextBoxColumn
             // 
@@ -102,32 +126,9 @@ namespace DojoAcademia
             this.telefoneDataGridViewTextBoxColumn.Name = "telefoneDataGridViewTextBoxColumn";
             this.telefoneDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // btnExcluirProfessor
+            // professorBindingSource
             // 
-            this.btnExcluirProfessor.Location = new System.Drawing.Point(515, 168);
-            this.btnExcluirProfessor.Name = "btnExcluirProfessor";
-            this.btnExcluirProfessor.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluirProfessor.TabIndex = 6;
-            this.btnExcluirProfessor.Text = "Excluir";
-            this.btnExcluirProfessor.UseVisualStyleBackColor = true;
-            // 
-            // btnAlterarProfessor
-            // 
-            this.btnAlterarProfessor.Location = new System.Drawing.Point(434, 168);
-            this.btnAlterarProfessor.Name = "btnAlterarProfessor";
-            this.btnAlterarProfessor.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterarProfessor.TabIndex = 5;
-            this.btnAlterarProfessor.Text = "Alterar";
-            this.btnAlterarProfessor.UseVisualStyleBackColor = true;
-            // 
-            // btnNovoProfessor
-            // 
-            this.btnNovoProfessor.Location = new System.Drawing.Point(353, 168);
-            this.btnNovoProfessor.Name = "btnNovoProfessor";
-            this.btnNovoProfessor.Size = new System.Drawing.Size(75, 23);
-            this.btnNovoProfessor.TabIndex = 4;
-            this.btnNovoProfessor.Text = "Novo";
-            this.btnNovoProfessor.UseVisualStyleBackColor = true;
+            this.professorBindingSource.DataSource = typeof(DojoAcademia.Dominio.Professor);
             // 
             // FormProfessores
             // 
@@ -140,6 +141,7 @@ namespace DojoAcademia
             this.Controls.Add(this.dataGridView1);
             this.Name = "FormProfessores";
             this.Text = "FormProfessores";
+            this.Load += new System.EventHandler(this.FormProfessores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.professorBindingSource)).EndInit();
             this.ResumeLayout(false);
