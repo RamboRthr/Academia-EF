@@ -13,6 +13,6 @@ namespace DojoAcademia.Dominio
         public string Nome { get; set; }
         public double PrecoHora { get; set; }
         public int VezesSemana { get; set; }
-        public string Professor { get; set; }
+        public virtual Professor Professor { get; set; }
     }
 }

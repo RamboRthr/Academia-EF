@@ -6,6 +6,6 @@ namespace DojoAcademia.Dominio
     public class Turno
     {
         [Key]
-        public String Nome{ get; set; }
+        public string Nome{ get; set; }
     }
 }

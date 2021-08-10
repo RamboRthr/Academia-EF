@@ -26,7 +26,11 @@ namespace DojoAcademia
             mskCPF.DataBindings.Add("Text", professor, "CPF");
             mskTelefone.DataBindings.Add("Text", professor, "Telefone");
             turnoBindingSource.DataSource = new AppDBContext().Turnos.ToList();
-            cbxTurno.SelectedItem = professor.Turno;
+            foreach (var turno in professor.Turnos)
+            {
+                cbxTurno.Items.Add(turno.Nome);
+            }
+            cbxTurno.SelectedItem = professor.Turnos[0];
             cbxSalarioHora.DataBindings.Add("Text", professor, "Telefone");
 
         }

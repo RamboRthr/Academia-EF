@@ -21,7 +21,7 @@ namespace DojoAcademia
 
         private void btnNovoProfessor_Click(object sender, EventArgs e)
         {
-            var professor1 = new Professor();
+            /*var professor1 = new Professor();
             if (sender == btnNovoProfessor)
             {
                 professorBindingSource.Add(professor1);
@@ -61,15 +61,15 @@ namespace DojoAcademia
 
 
                 }
-                /*else
+                else
                 {
                     if (sender == btnNovoProfessor)
                     {
                         professorBindingSource.RemoveCurrent();
                     }
-                }*/
+                }
 
-            }
+            }*/
         }
 
         private void FormProfessores_Load(object sender, EventArgs e)
