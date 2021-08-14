@@ -29,6 +29,7 @@ namespace DojoAcademia
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCpf = new System.Windows.Forms.Label();
@@ -41,6 +42,8 @@ namespace DojoAcademia
             this.cbxModalidade = new System.Windows.Forms.ComboBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.modalidadeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.modalidadeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNome
@@ -126,13 +129,13 @@ namespace DojoAcademia
             // 
             // cbxModalidade
             // 
+            this.cbxModalidade.DataSource = this.modalidadeBindingSource;
             this.cbxModalidade.FormattingEnabled = true;
-            this.cbxModalidade.Items.AddRange(new object[] {
-            "."});
             this.cbxModalidade.Location = new System.Drawing.Point(245, 67);
             this.cbxModalidade.Name = "cbxModalidade";
             this.cbxModalidade.Size = new System.Drawing.Size(121, 21);
             this.cbxModalidade.TabIndex = 9;
+            this.cbxModalidade.SelectedIndexChanged += new System.EventHandler(this.cbxModalidade_SelectedIndexChanged);
             // 
             // btnSalvar
             // 
@@ -154,6 +157,10 @@ namespace DojoAcademia
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
+            // modalidadeBindingSource
+            // 
+            this.modalidadeBindingSource.DataSource = typeof(DojoAcademia.Dominio.Modalidade);
+            // 
             // FormCadastroAluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,6 +181,7 @@ namespace DojoAcademia
             this.Name = "FormCadastroAluno";
             this.Text = "FormCadastroAluno";
             this.Load += new System.EventHandler(this.FormCadastroAluno_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.modalidadeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,5 +201,6 @@ namespace DojoAcademia
         private System.Windows.Forms.ComboBox cbxModalidade;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.BindingSource modalidadeBindingSource;
     }
 }

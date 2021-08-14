@@ -26,6 +26,10 @@ namespace DojoAcademia
             mskCpf.DataBindings.Add("Text", aluno, "CPF");
             mskCpf.Enabled = string.IsNullOrEmpty(aluno.CPF);
             mskTelefone.DataBindings.Add("Text", aluno, "Telefone");
+            using (var db = new AppDBContext())
+            {
+                modalidadeBindingSource.DataSource = db.Modalidades.ToList();
+            }
 
             foreach (var item in cbxTurno.Items)
             {
@@ -34,11 +38,35 @@ namespace DojoAcademia
                     cbxTurno.SelectedItem = item;
                 }
             }
+
+            if (aluno.Modalidade != null)
+            {
+                foreach (var item in cbxTurno.Items)
+                {
+                    var modalidade = item as Modalidade;
+                    if (modalidade.Nome == aluno.Modalidade.Nome)
+                    {
+                        cbxTurno.SelectedItem = item;
+                    }
+                }
+            }
+            else
+            {
+                aluno.Modalidade = cbxTurno.Items[0] as Modalidade;
+            }
+            
+
+                 
         }
 
         private void cbxTurno_SelectedIndexChanged(object sender, EventArgs e)
         {
             aluno.TurnoAluno = cbxTurno.SelectedItem.ToString();
+        }
+
+        private void cbxModalidade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            aluno.Modalidade = cbxTurno.SelectedItem as Modalidade;
         }
     }
 }

@@ -29,6 +29,7 @@ namespace DojoAcademia
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtPrecoHora = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -39,6 +40,8 @@ namespace DojoAcademia
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbxVezesSemana = new System.Windows.Forms.ComboBox();
+            this.professorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.professorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtPrecoHora
@@ -88,11 +91,13 @@ namespace DojoAcademia
             // 
             // cbxProfessor
             // 
+            this.cbxProfessor.DataSource = this.professorBindingSource;
             this.cbxProfessor.FormattingEnabled = true;
             this.cbxProfessor.Location = new System.Drawing.Point(12, 76);
             this.cbxProfessor.Name = "cbxProfessor";
             this.cbxProfessor.Size = new System.Drawing.Size(121, 21);
             this.cbxProfessor.TabIndex = 32;
+            this.cbxProfessor.SelectedIndexChanged += new System.EventHandler(this.cbxProfessor_SelectedIndexChanged);
             // 
             // lblNome
             // 
@@ -136,6 +141,10 @@ namespace DojoAcademia
             this.cbxVezesSemana.TabIndex = 38;
             this.cbxVezesSemana.SelectedIndexChanged += new System.EventHandler(this.cbxVezesSemana_SelectedIndexChanged);
             // 
+            // professorBindingSource
+            // 
+            this.professorBindingSource.DataSource = typeof(DojoAcademia.Dominio.Professor);
+            // 
             // FormCadastroModalidade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,6 +163,7 @@ namespace DojoAcademia
             this.Name = "FormCadastroModalidade";
             this.Text = "FormCadastroModalidade";
             this.Load += new System.EventHandler(this.FormCadastroModalidade_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.professorBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,5 +181,6 @@ namespace DojoAcademia
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbxVezesSemana;
+        private System.Windows.Forms.BindingSource professorBindingSource;
     }
 }
