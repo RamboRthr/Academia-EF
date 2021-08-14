@@ -1,4 +1,5 @@
 ﻿using DojoAcademia.Dominio;
+using DojoAcademia.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,7 +42,7 @@ namespace DojoAcademia
             {
                 if (form.ShowDialog() == DialogResult.Yes)
                 {
-                     aluno = alunoBindingSource.Current as Aluno;
+                    aluno = alunoBindingSource.Current as Aluno;
 
                     using (var db = new AppDBContext())
                     {
@@ -59,7 +60,7 @@ namespace DojoAcademia
                             db.Entry(aluno).State = EntityState.Modified;
                         }
 
-                            if (db.SaveChanges() > 0)
+                        if (db.SaveChanges() > 0)
                         {
                             dataGridView1.Refresh();
                         }
@@ -80,7 +81,27 @@ namespace DojoAcademia
 
         private void btnExcluirAluno_Click(object sender, EventArgs e)
         {
-            alunoBindingSource.RemoveCurrent();
+            var aluno = alunoBindingSource.Current as Aluno;
+            if (aluno == null) return;
+
+            if (MessageBox.Show("Deseja realmente excluir o aluno?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return;
+            }
+
+            if (new AlunoRepository().Delete(aluno) > 0)
+            {
+                alunoBindingSource.Remove(aluno);
+                dataGridView1.Refresh();
+            }
+        }
+        private void FormAlunos_Load(object sender, EventArgs e)
+        {
+            using (var db = new AppDBContext())
+            {
+                alunoBindingSource.DataSource = db.Alunos.ToList();
+            }
         }
     }
+
 }

@@ -1,4 +1,5 @@
 ﻿using DojoAcademia.Dominio;
+using DojoAcademia.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,7 @@ namespace DojoAcademia
 
         private void btnNovoProfessor_Click(object sender, EventArgs e)
         {
-            /*var professor1 = new Professor();
+            var professor1 = new Professor();
             if (sender == btnNovoProfessor)
             {
                 professorBindingSource.Add(professor1);
@@ -38,28 +39,11 @@ namespace DojoAcademia
                 {
                     var professor = professorBindingSource.Current as Professor;
 
-                    using (var db = new AppDBContext())
+                    if (new ProfessorRepository().Save(professor) > 0)
                     {
-                        if (db.Entry(professor).State == EntityState.Detached)
-                        {
-                            db.Set<Professor>().Attach(professor);
-                        }
-                        if (String.IsNullOrEmpty(professor.CPF))
-                        {
-                            db.Entry(professor).State = EntityState.Added;
-                        }
-                        else
-                        {
-                            db.Entry(professor).State = EntityState.Modified;
-                        }
-
-                        if (db.SaveChanges() > 0)
-                        {
-                            dataGridView1.Refresh();
-                        }
+                        dataGridView1.Refresh();
                     }
-
-
+                    
                 }
                 else
                 {
@@ -69,12 +53,32 @@ namespace DojoAcademia
                     }
                 }
 
-            }*/
+            }
         }
 
         private void FormProfessores_Load(object sender, EventArgs e)
         {
+            using (var db = new AppDBContext())
+            {
+                professorBindingSource.DataSource = db.Professores.ToList();
+            }
+        }
 
+        private void btnExcluirProfessor_Click(object sender, EventArgs e)
+        {
+            var professor = professorBindingSource.Current as Professor;
+            if (professor == null) return;
+
+            if (MessageBox.Show("Deseja realmente excluir o aluno?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return;
+            }
+
+            if (new ProfessorRepository().Delete(professor) > 0)
+            {
+                professorBindingSource.Remove(professor);
+                dataGridView1.Refresh();
+            }
         }
     }
 }

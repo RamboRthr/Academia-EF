@@ -31,14 +31,15 @@ namespace DojoAcademia
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnNovoAluno = new System.Windows.Forms.Button();
+            this.btnAlterarAluno = new System.Windows.Forms.Button();
+            this.btnExcluirAluno = new System.Windows.Forms.Button();
+            this.alunoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.modalidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cPFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.alunoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnNovoAluno = new System.Windows.Forms.Button();
-            this.btnAlterarAluno = new System.Windows.Forms.Button();
-            this.btnExcluirAluno = new System.Windows.Forms.Button();
+            this.TurnoAluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.alunoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -53,45 +54,14 @@ namespace DojoAcademia
             this.modalidadeDataGridViewTextBoxColumn,
             this.cPFDataGridViewTextBoxColumn,
             this.nomeDataGridViewTextBoxColumn,
-            this.telefoneDataGridViewTextBoxColumn});
+            this.telefoneDataGridViewTextBoxColumn,
+            this.TurnoAluno});
             this.dataGridView1.DataSource = this.alunoBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(582, 150);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // modalidadeDataGridViewTextBoxColumn
-            // 
-            this.modalidadeDataGridViewTextBoxColumn.DataPropertyName = "Modalidade";
-            this.modalidadeDataGridViewTextBoxColumn.HeaderText = "Modalidade";
-            this.modalidadeDataGridViewTextBoxColumn.Name = "modalidadeDataGridViewTextBoxColumn";
-            this.modalidadeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cPFDataGridViewTextBoxColumn
-            // 
-            this.cPFDataGridViewTextBoxColumn.DataPropertyName = "CPF";
-            this.cPFDataGridViewTextBoxColumn.HeaderText = "CPF";
-            this.cPFDataGridViewTextBoxColumn.Name = "cPFDataGridViewTextBoxColumn";
-            this.cPFDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nomeDataGridViewTextBoxColumn
-            // 
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // telefoneDataGridViewTextBoxColumn
-            // 
-            this.telefoneDataGridViewTextBoxColumn.DataPropertyName = "Telefone";
-            this.telefoneDataGridViewTextBoxColumn.HeaderText = "Telefone";
-            this.telefoneDataGridViewTextBoxColumn.Name = "telefoneDataGridViewTextBoxColumn";
-            this.telefoneDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // alunoBindingSource
-            // 
-            this.alunoBindingSource.DataSource = typeof(DojoAcademia.Dominio.Aluno);
             // 
             // btnNovoAluno
             // 
@@ -123,6 +93,45 @@ namespace DojoAcademia
             this.btnExcluirAluno.UseVisualStyleBackColor = true;
             this.btnExcluirAluno.Click += new System.EventHandler(this.btnExcluirAluno_Click);
             // 
+            // alunoBindingSource
+            // 
+            this.alunoBindingSource.DataSource = typeof(DojoAcademia.Dominio.Aluno);
+            // 
+            // modalidadeDataGridViewTextBoxColumn
+            // 
+            this.modalidadeDataGridViewTextBoxColumn.DataPropertyName = "Modalidade";
+            this.modalidadeDataGridViewTextBoxColumn.HeaderText = "Modalidade";
+            this.modalidadeDataGridViewTextBoxColumn.Name = "modalidadeDataGridViewTextBoxColumn";
+            this.modalidadeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cPFDataGridViewTextBoxColumn
+            // 
+            this.cPFDataGridViewTextBoxColumn.DataPropertyName = "CPF";
+            this.cPFDataGridViewTextBoxColumn.HeaderText = "CPF";
+            this.cPFDataGridViewTextBoxColumn.Name = "cPFDataGridViewTextBoxColumn";
+            this.cPFDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // telefoneDataGridViewTextBoxColumn
+            // 
+            this.telefoneDataGridViewTextBoxColumn.DataPropertyName = "Telefone";
+            this.telefoneDataGridViewTextBoxColumn.HeaderText = "Telefone";
+            this.telefoneDataGridViewTextBoxColumn.Name = "telefoneDataGridViewTextBoxColumn";
+            this.telefoneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // TurnoAluno
+            // 
+            this.TurnoAluno.DataPropertyName = "TurnoAluno";
+            this.TurnoAluno.HeaderText = "Turno";
+            this.TurnoAluno.Name = "TurnoAluno";
+            this.TurnoAluno.ReadOnly = true;
+            // 
             // FormAlunos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -134,6 +143,7 @@ namespace DojoAcademia
             this.Controls.Add(this.dataGridView1);
             this.Name = "FormAlunos";
             this.Text = "FormAlunos";
+            this.Load += new System.EventHandler(this.FormAlunos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.alunoBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -144,13 +154,14 @@ namespace DojoAcademia
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn turnoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn modalidadeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cPFDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource alunoBindingSource;
         private System.Windows.Forms.Button btnNovoAluno;
         private System.Windows.Forms.Button btnAlterarAluno;
         private System.Windows.Forms.Button btnExcluirAluno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modalidadeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPFDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TurnoAluno;
     }
 }

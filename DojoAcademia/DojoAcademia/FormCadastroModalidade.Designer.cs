@@ -29,7 +29,7 @@ namespace DojoAcademia
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtSalarioHora = new System.Windows.Forms.TextBox();
+            this.txtPrecoHora = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.lblSalarioHora = new System.Windows.Forms.Label();
@@ -41,12 +41,12 @@ namespace DojoAcademia
             this.cbxVezesSemana = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // txtSalarioHora
+            // txtPrecoHora
             // 
-            this.txtSalarioHora.Location = new System.Drawing.Point(158, 77);
-            this.txtSalarioHora.Name = "txtSalarioHora";
-            this.txtSalarioHora.Size = new System.Drawing.Size(94, 20);
-            this.txtSalarioHora.TabIndex = 37;
+            this.txtPrecoHora.Location = new System.Drawing.Point(158, 77);
+            this.txtPrecoHora.Name = "txtPrecoHora";
+            this.txtPrecoHora.Size = new System.Drawing.Size(94, 20);
+            this.txtPrecoHora.TabIndex = 37;
             // 
             // btnCancelar
             // 
@@ -123,17 +123,18 @@ namespace DojoAcademia
             // 
             this.cbxVezesSemana.FormattingEnabled = true;
             this.cbxVezesSemana.Items.AddRange(new object[] {
-            "1x",
-            "2x",
-            "3x",
-            "4x",
-            "5x",
-            "6x",
-            "7x"});
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
             this.cbxVezesSemana.Location = new System.Drawing.Point(279, 76);
             this.cbxVezesSemana.Name = "cbxVezesSemana";
             this.cbxVezesSemana.Size = new System.Drawing.Size(121, 21);
             this.cbxVezesSemana.TabIndex = 38;
+            this.cbxVezesSemana.SelectedIndexChanged += new System.EventHandler(this.cbxVezesSemana_SelectedIndexChanged);
             // 
             // FormCadastroModalidade
             // 
@@ -142,7 +143,7 @@ namespace DojoAcademia
             this.ClientSize = new System.Drawing.Size(574, 251);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxVezesSemana);
-            this.Controls.Add(this.txtSalarioHora);
+            this.Controls.Add(this.txtPrecoHora);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.lblSalarioHora);
@@ -152,6 +153,7 @@ namespace DojoAcademia
             this.Controls.Add(this.txtNome);
             this.Name = "FormCadastroModalidade";
             this.Text = "FormCadastroModalidade";
+            this.Load += new System.EventHandler(this.FormCadastroModalidade_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,7 +161,7 @@ namespace DojoAcademia
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtSalarioHora;
+        private System.Windows.Forms.TextBox txtPrecoHora;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label lblSalarioHora;

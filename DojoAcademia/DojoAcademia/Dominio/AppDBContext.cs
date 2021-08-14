@@ -14,7 +14,6 @@ namespace DojoAcademia.Dominio
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Professor> Professores { get; set; }
         public DbSet<Modalidade> Modalidades { get; set; }
-        public DbSet<Turno> Turnos { get; set; }
         public AppDBContext() : base(nameOrConnectionString: "dojoAcademia")
         {
         }

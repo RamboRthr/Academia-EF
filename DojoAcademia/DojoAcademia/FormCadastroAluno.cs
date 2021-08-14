@@ -26,8 +26,19 @@ namespace DojoAcademia
             mskCpf.DataBindings.Add("Text", aluno, "CPF");
             mskCpf.Enabled = string.IsNullOrEmpty(aluno.CPF);
             mskTelefone.DataBindings.Add("Text", aluno, "Telefone");
-            cbxTurno.DataBindings.Add("Text", aluno, "TurnoAluno");
-            cbxModalidade.DataBindings.Add("Text", aluno, "Modalidade");
+
+            foreach (var item in cbxTurno.Items)
+            {
+                if (item.ToString() == aluno.TurnoAluno)
+                {
+                    cbxTurno.SelectedItem = item;
+                }
+            }
+        }
+
+        private void cbxTurno_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            aluno.TurnoAluno = cbxTurno.SelectedItem.ToString();
         }
     }
 }

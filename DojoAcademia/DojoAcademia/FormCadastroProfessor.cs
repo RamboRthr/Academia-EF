@@ -24,20 +24,28 @@ namespace DojoAcademia
         {
             txtNome.DataBindings.Add("Text", professor, "Nome");
             mskCPF.DataBindings.Add("Text", professor, "CPF");
+            mskCPF.Enabled = string.IsNullOrEmpty(professor.CPF);
             mskTelefone.DataBindings.Add("Text", professor, "Telefone");
-            turnoBindingSource.DataSource = new AppDBContext().Turnos.ToList();
-            foreach (var turno in professor.Turnos)
+            foreach (var item in cbxTurno.Items)
             {
-                cbxTurno.Items.Add(turno.Nome);
+                if (item.ToString() == professor.Turno)
+                {
+                    cbxTurno.SelectedItem = item;
+                }
             }
-            cbxTurno.SelectedItem = professor.Turnos[0];
-            cbxSalarioHora.DataBindings.Add("Text", professor, "Telefone");
-
+            txtSalarioHora.DataBindings.Add(new Binding("Text",professor,"SalarioHora" ));
         }
+
+
 
         private void txtNome_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbxTurno_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            professor.Turno = cbxTurno.SelectedItem.ToString();
         }
     }
 }

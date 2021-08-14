@@ -8,7 +8,12 @@ namespace DojoAcademia.Dominio
 {
     public class Professor:Pessoa
     {
-        public virtual List<Turno> Turnos { get; set; }
+        public string Turno { get; set; }
         public double SalarioHora { get; set; }
+
+        public override string ToString()
+        {
+            return Nome;
+        }
     }
 }

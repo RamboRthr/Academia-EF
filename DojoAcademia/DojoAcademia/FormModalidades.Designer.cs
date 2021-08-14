@@ -31,14 +31,14 @@ namespace DojoAcademia
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.modalidadeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnExcluirMoidalidade = new System.Windows.Forms.Button();
+            this.btnAlterarModalidade = new System.Windows.Forms.Button();
+            this.btnNovaModalidade = new System.Windows.Forms.Button();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precoHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vezesSemanaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.professorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExcluirMoidalidade = new System.Windows.Forms.Button();
-            this.btnAlterarModalidade = new System.Windows.Forms.Button();
-            this.btnNovaModalidade = new System.Windows.Forms.Button();
+            this.modalidadeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modalidadeBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -61,9 +61,35 @@ namespace DojoAcademia
             this.dataGridView1.Size = new System.Drawing.Size(467, 150);
             this.dataGridView1.TabIndex = 0;
             // 
-            // modalidadeBindingSource
+            // btnExcluirMoidalidade
             // 
-            this.modalidadeBindingSource.DataSource = typeof(DojoAcademia.Dominio.Modalidade);
+            this.btnExcluirMoidalidade.Location = new System.Drawing.Point(404, 168);
+            this.btnExcluirMoidalidade.Name = "btnExcluirMoidalidade";
+            this.btnExcluirMoidalidade.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluirMoidalidade.TabIndex = 6;
+            this.btnExcluirMoidalidade.Text = "Excluir";
+            this.btnExcluirMoidalidade.UseVisualStyleBackColor = true;
+            this.btnExcluirMoidalidade.Click += new System.EventHandler(this.btnExcluirMoidalidade_Click);
+            // 
+            // btnAlterarModalidade
+            // 
+            this.btnAlterarModalidade.Location = new System.Drawing.Point(323, 168);
+            this.btnAlterarModalidade.Name = "btnAlterarModalidade";
+            this.btnAlterarModalidade.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterarModalidade.TabIndex = 5;
+            this.btnAlterarModalidade.Text = "Alterar";
+            this.btnAlterarModalidade.UseVisualStyleBackColor = true;
+            this.btnAlterarModalidade.Click += new System.EventHandler(this.btnAlterarModalidade_Click);
+            // 
+            // btnNovaModalidade
+            // 
+            this.btnNovaModalidade.Location = new System.Drawing.Point(242, 168);
+            this.btnNovaModalidade.Name = "btnNovaModalidade";
+            this.btnNovaModalidade.Size = new System.Drawing.Size(75, 23);
+            this.btnNovaModalidade.TabIndex = 4;
+            this.btnNovaModalidade.Text = "Nova";
+            this.btnNovaModalidade.UseVisualStyleBackColor = true;
+            this.btnNovaModalidade.Click += new System.EventHandler(this.btnNovaModalidade_Click);
             // 
             // nomeDataGridViewTextBoxColumn
             // 
@@ -93,32 +119,9 @@ namespace DojoAcademia
             this.professorDataGridViewTextBoxColumn.Name = "professorDataGridViewTextBoxColumn";
             this.professorDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // btnExcluirMoidalidade
+            // modalidadeBindingSource
             // 
-            this.btnExcluirMoidalidade.Location = new System.Drawing.Point(404, 168);
-            this.btnExcluirMoidalidade.Name = "btnExcluirMoidalidade";
-            this.btnExcluirMoidalidade.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluirMoidalidade.TabIndex = 6;
-            this.btnExcluirMoidalidade.Text = "Excluir";
-            this.btnExcluirMoidalidade.UseVisualStyleBackColor = true;
-            // 
-            // btnAlterarModalidade
-            // 
-            this.btnAlterarModalidade.Location = new System.Drawing.Point(323, 168);
-            this.btnAlterarModalidade.Name = "btnAlterarModalidade";
-            this.btnAlterarModalidade.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterarModalidade.TabIndex = 5;
-            this.btnAlterarModalidade.Text = "Alterar";
-            this.btnAlterarModalidade.UseVisualStyleBackColor = true;
-            // 
-            // btnNovaModalidade
-            // 
-            this.btnNovaModalidade.Location = new System.Drawing.Point(242, 168);
-            this.btnNovaModalidade.Name = "btnNovaModalidade";
-            this.btnNovaModalidade.Size = new System.Drawing.Size(75, 23);
-            this.btnNovaModalidade.TabIndex = 4;
-            this.btnNovaModalidade.Text = "Nova";
-            this.btnNovaModalidade.UseVisualStyleBackColor = true;
+            this.modalidadeBindingSource.DataSource = typeof(DojoAcademia.Dominio.Modalidade);
             // 
             // FormModalidades
             // 
@@ -131,6 +134,7 @@ namespace DojoAcademia
             this.Controls.Add(this.dataGridView1);
             this.Name = "FormModalidades";
             this.Text = "FormModalidades";
+            this.Load += new System.EventHandler(this.FormModalidades_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.modalidadeBindingSource)).EndInit();
             this.ResumeLayout(false);

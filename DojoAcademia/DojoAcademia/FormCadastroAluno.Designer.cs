@@ -68,19 +68,19 @@ namespace DojoAcademia
             this.lblCpf.TabIndex = 3;
             this.lblCpf.Text = "CPF";
             // 
-            // maskCPF
+            // mskCpf
             // 
             this.mskCpf.Location = new System.Drawing.Point(444, 25);
             this.mskCpf.Mask = "999,999,999-99";
-            this.mskCpf.Name = "maskCPF";
+            this.mskCpf.Name = "mskCpf";
             this.mskCpf.Size = new System.Drawing.Size(100, 20);
             this.mskCpf.TabIndex = 4;
             // 
-            // maskTelefone
+            // mskTelefone
             // 
             this.mskTelefone.Location = new System.Drawing.Point(12, 67);
             this.mskTelefone.Mask = "(99) 99999-9999";
-            this.mskTelefone.Name = "maskTelefone";
+            this.mskTelefone.Name = "mskTelefone";
             this.mskTelefone.Size = new System.Drawing.Size(100, 20);
             this.mskTelefone.TabIndex = 6;
             // 
@@ -97,11 +97,14 @@ namespace DojoAcademia
             // 
             this.cbxTurno.FormattingEnabled = true;
             this.cbxTurno.Items.AddRange(new object[] {
-            "."});
+            "Matutino",
+            "Vespertino",
+            "Noturno"});
             this.cbxTurno.Location = new System.Drawing.Point(118, 67);
             this.cbxTurno.Name = "cbxTurno";
             this.cbxTurno.Size = new System.Drawing.Size(121, 21);
             this.cbxTurno.TabIndex = 7;
+            this.cbxTurno.SelectedIndexChanged += new System.EventHandler(this.cbxTurno_SelectedIndexChanged);
             // 
             // lblTurno
             // 
