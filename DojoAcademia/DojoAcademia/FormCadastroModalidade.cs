@@ -24,6 +24,10 @@ namespace DojoAcademia
         {
             txtNome.DataBindings.Add(new Binding("Text", modalidade, "Nome"));
             txtPrecoHora.DataBindings.Add(new Binding("Text", modalidade, "PrecoHora"));
+            using (var db = new AppDBContext())
+            {
+                professorBindingSource.DataSource = db.Professores.ToList();
+            }
 
             foreach (var item in cbxVezesSemana.Items)
             {
@@ -32,13 +36,17 @@ namespace DojoAcademia
                     cbxVezesSemana.SelectedItem = item;
                 }
             }
-            foreach (Professor professor in cbxProfessor.Items)
+            if (modalidade.Professor != null)
             {
-                if (professor.ToString() == modalidade.Professor.Nome)
+                foreach (Professor professor in cbxProfessor.Items)
                 {
-                    cbxProfessor.SelectedItem = professor;
+                    if (professor.ToString() == modalidade.Professor.Nome)
+                    {
+                        cbxProfessor.SelectedItem = professor;
+                    }
                 }
             }
+            
         }
 
         private void cbxVezesSemana_SelectedIndexChanged(object sender, EventArgs e)

@@ -14,5 +14,9 @@ namespace DojoAcademia.Dominio
         public double PrecoHora { get; set; }
         public int VezesSemana { get; set; }
         public virtual Professor Professor { get; set; }
+        public override string ToString()
+        {
+            return Nome; 
+        }
     }
 }
