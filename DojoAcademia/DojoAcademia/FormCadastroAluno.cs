@@ -41,7 +41,7 @@ namespace DojoAcademia
 
             if (aluno.Modalidade != null)
             {
-                foreach (var item in cbxTurno.Items)
+                foreach (var item in cbxModalidade.Items)
                 {
                     var modalidade = item as Modalidade;
                     if (modalidade.Nome == aluno.Modalidade.Nome)
