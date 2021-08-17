@@ -34,11 +34,11 @@ namespace DojoAcademia
             this.btnExcluirMoidalidade = new System.Windows.Forms.Button();
             this.btnAlterarModalidade = new System.Windows.Forms.Button();
             this.btnNovaModalidade = new System.Windows.Forms.Button();
+            this.modalidadeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Professor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precoHoraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vezesSemanaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.professorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modalidadeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modalidadeBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -51,9 +51,9 @@ namespace DojoAcademia
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nomeDataGridViewTextBoxColumn,
+            this.Professor,
             this.precoHoraDataGridViewTextBoxColumn,
-            this.vezesSemanaDataGridViewTextBoxColumn,
-            this.professorDataGridViewTextBoxColumn});
+            this.vezesSemanaDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.modalidadeBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
@@ -91,12 +91,23 @@ namespace DojoAcademia
             this.btnNovaModalidade.UseVisualStyleBackColor = true;
             this.btnNovaModalidade.Click += new System.EventHandler(this.btnNovaModalidade_Click);
             // 
+            // modalidadeBindingSource
+            // 
+            this.modalidadeBindingSource.DataSource = typeof(DojoAcademia.Dominio.Modalidade);
+            // 
             // nomeDataGridViewTextBoxColumn
             // 
             this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
             this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
             this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
             this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Professor
+            // 
+            this.Professor.DataPropertyName = "Professor";
+            this.Professor.HeaderText = "Professor";
+            this.Professor.Name = "Professor";
+            this.Professor.ReadOnly = true;
             // 
             // precoHoraDataGridViewTextBoxColumn
             // 
@@ -111,17 +122,6 @@ namespace DojoAcademia
             this.vezesSemanaDataGridViewTextBoxColumn.HeaderText = "VezesSemana";
             this.vezesSemanaDataGridViewTextBoxColumn.Name = "vezesSemanaDataGridViewTextBoxColumn";
             this.vezesSemanaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // professorDataGridViewTextBoxColumn
-            // 
-            this.professorDataGridViewTextBoxColumn.DataPropertyName = "Professor";
-            this.professorDataGridViewTextBoxColumn.HeaderText = "Professor";
-            this.professorDataGridViewTextBoxColumn.Name = "professorDataGridViewTextBoxColumn";
-            this.professorDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // modalidadeBindingSource
-            // 
-            this.modalidadeBindingSource.DataSource = typeof(DojoAcademia.Dominio.Modalidade);
             // 
             // FormModalidades
             // 
@@ -144,13 +144,13 @@ namespace DojoAcademia
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precoHoraDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vezesSemanaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn professorDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource modalidadeBindingSource;
         private System.Windows.Forms.Button btnExcluirMoidalidade;
         private System.Windows.Forms.Button btnAlterarModalidade;
         private System.Windows.Forms.Button btnNovaModalidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Professor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precoHoraDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vezesSemanaDataGridViewTextBoxColumn;
     }
 }

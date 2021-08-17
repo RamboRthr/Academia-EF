@@ -36,49 +36,42 @@ namespace DojoAcademia
             var aluno = alunoBindingSource.Current as Aluno;
             bool cpfVazio = string.IsNullOrEmpty(aluno.CPF);
 
-            using (var form =
-                new FormCadastroAluno(
-                    alunoBindingSource.Current as Aluno))
+            var form = new FormCadastroAluno(alunoBindingSource.Current as Aluno);
+            if (form.ShowDialog() == DialogResult.Yes)
             {
-                if (form.ShowDialog() == DialogResult.Yes)
+                aluno = alunoBindingSource.Current as Aluno;
+
+                using (var db = new AppDBContext())
                 {
-                    aluno = alunoBindingSource.Current as Aluno;
-
-                    using (var db = new AppDBContext())
+                    if (db.Entry(aluno).State == EntityState.Detached)
                     {
-                        if (db.Entry(aluno).State == EntityState.Detached)
-                        {
-                            db.Set<Aluno>().Attach(aluno);
-                        }
-
-                        if (cpfVazio)
-                        {
-                            db.Entry(aluno).State = EntityState.Added;
-                        }
-                        else
-                        {
-                            db.Entry(aluno).State = EntityState.Modified;
-                        }
-
-                        if (db.SaveChanges() > 0)
-                        {
-                            dataGridView1.Refresh();
-                        }
+                        db.Set<Aluno>().Attach(aluno);
                     }
 
-
-                }
-                else
-                {
-                    if (sender == btnNovoAluno)
+                    if (cpfVazio)
                     {
-                        alunoBindingSource.RemoveCurrent();
+                        db.Entry(aluno).State = EntityState.Added;
+                    }
+                    else
+                    {
+                        db.Entry(aluno).State = EntityState.Modified;
+                    }
+
+                    if (db.SaveChanges() > 0)
+                    {
+                        dataGridView1.Refresh();
                     }
                 }
-
             }
-        }
+            else
+            {
+                if (sender == btnNovoAluno)
+                {
+                    alunoBindingSource.RemoveCurrent();
+                }
+            }
 
+        }
         private void btnExcluirAluno_Click(object sender, EventArgs e)
         {
             var aluno = alunoBindingSource.Current as Aluno;
@@ -99,9 +92,12 @@ namespace DojoAcademia
         {
             using (var db = new AppDBContext())
             {
-                alunoBindingSource.DataSource = db.Alunos.ToList();
+                alunoBindingSource.DataSource = db.Alunos.Include("Modalidade").ToList();
             }
         }
     }
 
+    
 }
+
+

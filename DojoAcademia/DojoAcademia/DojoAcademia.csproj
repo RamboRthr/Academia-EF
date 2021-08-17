@@ -166,6 +166,10 @@
     <Compile Include="Migrations\202108140038496_chave-estrageira.designer.cs">
       <DependentUpon>202108140038496_chave-estrageira.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108162304557_erro.cs" />
+    <Compile Include="Migrations\202108162304557_erro.designer.cs">
+      <DependentUpon>202108162304557_erro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -210,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108140038496_chave-estrageira.resx">
       <DependentUpon>202108140038496_chave-estrageira.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108162304557_erro.resx">
+      <DependentUpon>202108162304557_erro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

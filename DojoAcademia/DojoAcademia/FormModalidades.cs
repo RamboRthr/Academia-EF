@@ -32,31 +32,32 @@ namespace DojoAcademia
             var modalidade = modalidadeBindingSource.Current as Modalidade;
             if (modalidade == null) return;
 
-            using (var form = new FormCadastroModalidade(modalidade))
-            {
-                if (form.ShowDialog() == DialogResult.Yes)
-                {
-                    if (new ModaliadeRepository().Save(modalidade) > 0)
-                    {
-                        dataGridView1.Refresh();
-                    }
-                }
-                else
-                {
-                    if (sender == btnNovaModalidade)
-                    {
-                        modalidadeBindingSource.RemoveCurrent();
-                    }
-                }
+            var form = new FormCadastroModalidade(modalidade);
 
+
+            if (form.ShowDialog() == DialogResult.Yes)
+            {
+                if (new ModaliadeRepository().Save(modalidade) > 0)
+                {
+                    dataGridView1.Refresh();
+                }
             }
+            else
+            {
+                if (sender == btnNovaModalidade)
+                {
+                    modalidadeBindingSource.RemoveCurrent();
+                }
+            }
+
+
         }
 
         private void FormModalidades_Load(object sender, EventArgs e)
         {
             using (var db = new AppDBContext())
             {
-                modalidadeBindingSource.DataSource = db.Modalidades.ToList();
+                modalidadeBindingSource.DataSource = db.Modalidades.Include("Professor").ToList();
             }
         }
 
@@ -72,7 +73,7 @@ namespace DojoAcademia
                 modalidadeBindingSource.RemoveCurrent();
                 dataGridView1.Refresh();
             }
-            
+
         }
 
         private void btnAlterarModalidade_Click(object sender, EventArgs e)

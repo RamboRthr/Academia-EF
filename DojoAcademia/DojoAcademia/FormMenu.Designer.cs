@@ -32,6 +32,7 @@ namespace DojoAcademia
             this.btnAlunos = new System.Windows.Forms.Button();
             this.btnProfessores = new System.Windows.Forms.Button();
             this.btnModalidades = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAlunos
@@ -64,11 +65,22 @@ namespace DojoAcademia
             this.btnModalidades.UseVisualStyleBackColor = true;
             this.btnModalidades.Click += new System.EventHandler(this.btnModalidades_Click);
             // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(159, 148);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.TabIndex = 3;
+            this.btnExport.Text = "Exportar dados";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 239);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnModalidades);
             this.Controls.Add(this.btnProfessores);
             this.Controls.Add(this.btnAlunos);
@@ -84,6 +96,7 @@ namespace DojoAcademia
         private System.Windows.Forms.Button btnAlunos;
         private System.Windows.Forms.Button btnProfessores;
         private System.Windows.Forms.Button btnModalidades;
+        private System.Windows.Forms.Button btnExport;
     }
 }
 

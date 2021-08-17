@@ -28,7 +28,7 @@ namespace DojoAcademia
             mskTelefone.DataBindings.Add("Text", aluno, "Telefone");
             using (var db = new AppDBContext())
             {
-                modalidadeBindingSource.DataSource = db.Modalidades.ToList();
+                modalidadeBindingSource.DataSource = db.Modalidades.OrderBy(m => m.Nome).ToList();
             }
 
             foreach (var item in cbxTurno.Items)
@@ -66,7 +66,7 @@ namespace DojoAcademia
 
         private void cbxModalidade_SelectedIndexChanged(object sender, EventArgs e)
         {
-            aluno.Modalidade = cbxTurno.SelectedItem as Modalidade;
+            aluno.Modalidade =  cbxModalidade.SelectedItem as Modalidade;
         }
     }
 }
